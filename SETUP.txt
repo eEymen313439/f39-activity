@@ -1,0 +1,40 @@
+FRW39 DISCORD ACTIVITY KURULUMU
+================================
+
+1) .env.example dosyasını .env olarak kopyala ve doldur.
+
+2) Kurulum:
+   npm install
+   node .
+
+3) Discord Developer Portal Ayarları:
+   - Applications > FRW39 bot uygulamanı aç
+   - Activities sekmesine gir
+   - Create Activity de
+   - URL Mapping kısmına şu origin'i ekle:
+     https://senin-domainin.com
+   - Development URL / Launch URL:
+     https://senin-domainin.com
+   - Redirect URI olarak ekle:
+     https://senin-domainin.com
+     https://senin-domainin.com/api/token
+   - OAuth2 > General:
+     SCOPES: identify, guilds
+   - Embedded App SDK için Client ID ve Secret'ı .env'e yaz
+
+4) Discord içinden test:
+   - Bir ses kanalına gir
+   - Roket simgesine bas
+   - FRW39 Activity'yi seç
+   - Activity açılınca voice channel id üzerinden aynı odaya bağlanırsın
+
+5) Local geliştirme:
+   - node . komutu hem Express hem Vite middleware ile çalışır
+   - production build için:
+     npm run build
+     NODE_ENV=production node .
+
+ÖNEMLİ:
+- Oyun state'i server-authoritative'dir
+- Oyuncu elleri gizlidir; sadece private socket state ile gelir
+- Başkaları sadece kart/taş sayısını görür
