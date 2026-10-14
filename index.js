@@ -1,11 +1,16 @@
-'use strict';
-const path = require('path');
-const fs = require('fs');
-const express = require('express');
-const cors = require('cors');
-const http = require('http');
-const { Server } = require('socket.io');
-require('dotenv').config({ path: path.join(__dirname, '.env') });
+import path from 'path';
+import fs from 'fs';
+import express from 'express';
+import cors from 'cors';
+import http from 'http';
+import { Server } from 'socket.io';
+import dotenv from 'dotenv';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+dotenv.config({ path: path.join(__dirname, '.env') });
 
 const PORT = Number(process.env.PORT || 3000);
 const DISCORD_CLIENT_ID = process.env.DISCORD_CLIENT_ID;
